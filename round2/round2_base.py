@@ -366,7 +366,7 @@ def get_sample(dtype, data_type='base'):
     Tips:baseline包含训练集历史有购买用户，rank仅包含训练集复购用户与测试集全量用户
     """
     
-    path = '../data/sample_' + data_type
+    path = './data/sample_' + data_type
     if os.path.exists(path):
         sample = pd.read_hdf(path, dtype).reset_index(drop=True)
         return sample

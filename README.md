@@ -19,7 +19,28 @@ unzip antai_data.zip
 
 AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑选购买自己喜欢的商品。AliExpress积累了大量的用户行为数据，本赛题旨在通过海量数据挖掘用户下一个可能购买商品，选手们可以提交预测的TOP30商品列表，排序越靠前命中得分越高。
 
+## 赛题目标
+
+预测用户下一次购买的商品。
+
 ### 赛题数据
+
+共7个文件。
+
+第一轮初赛共4个文件：训练数据(Antai_AE_round1_train_20190626.csv)、测试数据(Antai_AE_round1_test_20190626.csv)、商品信息(Antai_AE_round1_item_attr_20190626.csv)、提交示例(Antai_AE_round1_submit_20190715.csv)
+
+第二轮复赛共3个文件：训练数据(Antai_AE_round2_train_20190813.csv)、测试数据(Antai_AE_round2_test_20190813.csv)、商品信息(Antai_AE_round2_item_attr_20190813.csv)
+
+1. 训练数据：用户每次购买的商品id，订单日期以及用户国家标识
+
+2. 测试数据：较于训练数据，测试数据剔除了模型需要预测的最后一次用户购买记录
+
+3. 商品信息：商品id、品类id、店铺id和商品价格
+
+4. 提交示例：预测用户购买商品Top30的item_id依概率从高到低排序，buyer_admin_id, predict 1, predict 2, …, predict 30
+
+
+
 根据零售行业的**人货场**概念，赛题提供了关于用户行为日志的常见字段可分为如下部分：
 * 用户：用户标识、用户国籍
 * 商品：商品标识、店铺、品类、价格
