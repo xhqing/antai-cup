@@ -291,7 +291,7 @@ def get_user(dtype, data_type='base'):
         
         recall : cold + test 205983
     """
-    path = '../data/user_' + data_type
+    path = './data/user_' + data_type
     if os.path.exists(path):
         user = pd.read_hdf(path, dtype).reset_index(drop=True)
         return user
