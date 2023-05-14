@@ -3,8 +3,21 @@
 
 比赛链接：[天池-安泰杯跨境电商智能算法大赛](https://tianchi.aliyun.com/competition/entrance/231718/introduction)
 
+## 数据下载
+
+如果没有参加这个比赛则无法在天池官网下载到比赛数据集，可以移步到这里下载：https://pan.baidu.com/s/18Z2mW8TFxwJvOWqmGXdPeg 提取码: iqrd，下载之后会得到一个名为`antai_data.zip`的压缩文件，拉取本仓库代码，然后在项目根目录创建一个名为`data`的目录，把刚才下载的`antai_data.zip`文件放进`data`目录，然后解压即可，具体操作如下：
+
+```sh
+git clone git@github.com:xhqing/antai-cup.git
+cd antai-cup
+mkdir data
+cd data
+unzip antai_data.zip
+```
+
 ## 赛题
-AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑选购买自己心意的商品。AliExpress积累了大量的用户行为数据，本赛题旨在通过海量数据挖掘用户下一个可能交互商品，选手们可以提交预测的TOP30商品列表，排序越靠前命中得分越高。
+
+AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑选购买自己喜欢的商品。AliExpress积累了大量的用户行为数据，本赛题旨在通过海量数据挖掘用户下一个可能购买商品，选手们可以提交预测的TOP30商品列表，排序越靠前命中得分越高。
 
 ### 赛题数据
 根据零售行业的**人货场**概念，赛题提供了关于用户行为日志的常见字段可分为如下部分：
