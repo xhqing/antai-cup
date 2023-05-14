@@ -1,0 +1,7 @@
+[[source]]
+url = "https://pypi.douban.com/simple"
+verify_ssl = true
+name = "pypi"
+
+[requires]
+python_version = "3.9.12"
