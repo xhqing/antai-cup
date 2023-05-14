@@ -37,16 +37,14 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 
 3. 商品信息：商品id、品类id、店铺id和商品价格
 
-4. 提交示例：预测用户购买商品Top30的item_id依概率从高到低排序，buyer_admin_id, predict 1, predict 2, …, predict 30
-
-
+4. 提交示例：预测用户购买商品Top30的item_id依概率从高到低排序，buyer_admin_id, predict 1, …, predict 30
 
 根据零售行业的**人货场**概念，赛题提供了关于用户行为日志的常见字段可分为如下部分：
 * 用户：用户标识、用户国籍
 * 商品：商品标识、店铺、品类、价格
 * 场景：点击时间、访问排序、购买标记
 
-评分公式MRR(Mean Reciprocal Rank)：
+评分公式采用MRR(Mean Reciprocal Rank)：
 ![](media/15736280209153/15755961879209.jpg)
 
 ### 赛题分析
