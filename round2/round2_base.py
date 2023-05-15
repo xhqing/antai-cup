@@ -363,7 +363,7 @@ def get_sample(dtype, data_type='base'):
     rank(1410353): 用户buy_flag打标为1所有样本(buy_flag=1)，用于在rank模型中，irank=1为正样本, 其他为负样本
     baseline(1899886): 按训练集irank去重后升序排序 
     
-    Tips:baseline包含训练集历史有购买用户，rank仅包含训练集复购用户与测试集全量用户
+    Tips: baseline包含训练集历史有购买用户，rank仅包含训练集复购用户与测试集全量用户
     """
     
     path = './data/sample_' + data_type

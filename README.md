@@ -21,7 +21,7 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 
 ## 赛题目标
 
-预测用户下一次购买的商品。
+预测用户下一次可能会购买的商品。
 
 ### 赛题数据
 
@@ -44,8 +44,19 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 * 商品：商品标识、店铺、品类、价格
 * 场景：点击时间、访问排序、购买标记
 
-评分公式采用MRR(Mean Reciprocal Rank)：
-![](media/15736280209153/15755961879209.jpg)
+评分公式采用MRR(Mean Reciprocal Rank)指标。
+
+首先对选手提交的表格中的每个用户计算用户得分，计算方式如下：
+$$
+score\left(buyer\right) = \sum_{k=1}^{30}\frac{s\left(buyer,k\right)}{k}
+$$
+其中, 如果选手对该buyer的预测结果predict k命中该buyer的最后一条购买数据则$s(buyer,k)=1$，否则$s(buyer,k)=0$。
+
+而选手最终得分为所有这些$score(buyer)$的平均值，也即MRR得分，计算如下：
+$$
+MRR = \frac{1}{n}score\left(buyer\right)=\frac{1}{n}\sum_{k=1}^{30}\frac{s\left(buyer,k\right)}{k}
+$$
+其中，$n$为$buyer$的数量。
 
 ### 赛题分析
 通过对赛题数据进行探索和分析，我们发现可以根据**预测商品是否在历史交互过**分成两种不同分布的用户：
@@ -64,7 +75,22 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 
 ## 数据
 ### 数据分析
-相关数据分析和可视化参见：[GitHub](https://github.com/RainFung/awesome-visualization/blob/master/Electronic-Commerce/%E9%98%BF%E9%87%8C%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95%E5%A4%A7%E8%B5%9B-%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96.ipynb)
+相关数据分析和可视化参见：`eda`目录。
+
+这里建议新建一个Python虚拟环境(这里建议使用pipenv)，然后安装requirements.txt，建议的具体操作如下：
+
+```sh
+# 在本仓库根目录执行以下操作
+pipenv --python 3.9.12 # 或 pipenv --python path/to/python, python 版本建议3.9.12 
+pipenv run pip install -r requirements.txt
+
+# 安装jupyterlab的kernel
+pipenv run python -m ipykernel install --name antai-cup # pipenv的 .venv/ 如果放在项目根目录，则虚拟环境的名字就是项目目录的名字，具体的需要了解pipenv的使用
+
+# 成功安装jupyterlab的 `antai-cup` kernel后, 刷新一下浏览器，在jupyterlab界面右上角kernel选择`antai-cup`即可在jupyterlab里面使用虚拟环境了 
+
+# eda 目录下的 eda_round1.ipynb 和 eda_round2.ipynb 分别是第一轮初赛数据和第二轮复赛数据的探索分析
+```
 
 ### 特征工程
 赛题所给的字段相对简单，主要可分为：用户-商品-场景，我们通过对不同类型因素进行交叉复合，并使用基础统计手段进行计算，构造出高阶特征，提取出购物决策的相关信息：
