@@ -2,3 +2,4 @@ data/
 code/.ipynb_checkpoints/
 .~Antai-Cup-Talk-Slideshare.pptx
 .venv/
+.DS_Store
