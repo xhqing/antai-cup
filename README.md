@@ -47,16 +47,16 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 评分公式采用MRR(Mean Reciprocal Rank)指标。
 
 首先对选手提交的表格中的每个用户计算用户得分，计算方式如下：
-$$
-score\left(buyer\right) = \sum_{k=1}^{30}\frac{s\left(buyer,k\right)}{k}
-$$
-其中, 如果选手对该buyer的预测结果predict k命中该buyer的最后一条购买数据则$s(buyer,k)=1$，否则$s(buyer,k)=0$。
 
-而选手最终得分为所有这些$score(buyer)$的平均值，也即MRR得分，计算如下：
-$$
-MRR = \frac{1}{n}score\left(buyer\right)=\frac{1}{n}\sum_{k=1}^{30}\frac{s\left(buyer,k\right)}{k}
-$$
-其中，$n$为$buyer$的数量。
+![](imgs/Xnip2023-05-15_22-29-15.jpg)
+
+其中, 如果选手对该buyer的预测结果predict k命中该buyer的最后一条购买数据则s(buyer,k)=1，否则s(buyer,k)=0。
+
+而选手最终得分为所有这些score(buyer)的平均值，也即MRR得分，计算如下：
+
+![](imgs/Xnip2023-05-15_22-34-56.jpg)
+
+其中，n为buyer的数量。
 
 ### 赛题分析
 通过对赛题数据进行探索和分析，我们发现可以根据**预测商品是否在历史交互过**分成两种不同分布的用户：
