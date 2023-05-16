@@ -367,7 +367,7 @@ def get_sample(dtype, data_type='base'):
     """
     
     path = './data/sample_' + data_type
-    import pdb; pdb.set_trace()
+    
     if os.path.exists(path):
         sample = pd.read_hdf(path, dtype).reset_index(drop=True)
         return sample

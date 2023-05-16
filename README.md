@@ -19,7 +19,7 @@ unzip antai_data.zip
 
 AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑选购买自己喜欢的商品。AliExpress积累了大量的用户行为数据，本赛题旨在通过海量数据挖掘用户下一个可能购买商品，选手们可以提交预测的TOP30商品列表，排序越靠前命中得分越高。
 
-## 赛题目标
+### 赛题目标
 
 预测用户下一次可能会购买的商品。
 
@@ -58,11 +58,8 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 
 其中，n为buyer的数量。
 
-## 数据
-### 数据分析
-相关数据分析和可视化参见：`eda`目录。
-
-这里建议新建一个Python虚拟环境(这里建议使用pipenv)，然后安装所需的依赖包，建议的具体操作如下：
+## 探索性数据分析
+这里建议新建一个Python虚拟环境(这里建议使用pipenv，version 2023.4.29)，然后安装所需的依赖包，建议的具体操作如下：
 
 ```sh
 # 在本仓库根目录执行以下操作
@@ -74,10 +71,13 @@ pipenv run python -m ipykernel install --name antai-cup # pipenv的 .venv/ 如�
 
 # 成功安装jupyterlab的 `antai-cup` kernel后, 刷新一下浏览器，在jupyterlab界面右上角kernel选择`antai-cup`即可在jupyterlab里面使用虚拟环境了 
 
-# eda 目录下的 eda_round1.ipynb 和 eda_round2.ipynb 分别是第一轮初赛数据和第二轮复赛数据的探索分析
+# round1/eda_round1.ipynb 和 round2/eda_round2.ipynb 分别是第一轮初赛数据和第二轮复赛数据的探索分析
 ```
 
-### 赛题分析
+注：原仓库只提供了round1的探索性数据分析及round2的最终方案，因此这里没有round1的最终方案，而round2的探索性数据分析本人按照round1的方法依葫芦画瓢做了类似的探索性分析：`round2/eda_round2.ipynb`.
+
+## 赛题分析
+
 通过对赛题数据进行探索和分析，我们发现可以根据**预测商品是否在历史交互过**分成两种不同分布的用户：
 
 *  历史交互用户：即预测商品用户曾经已交互过，在召回-排序阶段：
