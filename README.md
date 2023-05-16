@@ -58,6 +58,25 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 
 其中，n为buyer的数量。
 
+## 数据
+### 数据分析
+相关数据分析和可视化参见：`eda`目录。
+
+这里建议新建一个Python虚拟环境(这里建议使用pipenv)，然后安装所需的依赖包，建议的具体操作如下：
+
+```sh
+# 在本仓库根目录执行以下操作
+pipenv --python 3.9.12 # 或 pipenv --python path/to/python, python 版本建议3.9.12，可以使用conda安装特定的Python版本，使用`conda env list`就可以查看路径 
+pipenv install
+
+# 安装jupyterlab的kernel
+pipenv run python -m ipykernel install --name antai-cup # pipenv的 .venv/ 如果放在项目根目录，则虚拟环境的名字就是项目目录的名字，具体的需要了解pipenv的使用，设置环境变量export PIPENV_VENV_IN_PROJECT=1后虚拟环境就会在项目根目录里
+
+# 成功安装jupyterlab的 `antai-cup` kernel后, 刷新一下浏览器，在jupyterlab界面右上角kernel选择`antai-cup`即可在jupyterlab里面使用虚拟环境了 
+
+# eda 目录下的 eda_round1.ipynb 和 eda_round2.ipynb 分别是第一轮初赛数据和第二轮复赛数据的探索分析
+```
+
 ### 赛题分析
 通过对赛题数据进行探索和分析，我们发现可以根据**预测商品是否在历史交互过**分成两种不同分布的用户：
 
@@ -73,24 +92,7 @@ AliExpress是阿里巴巴海外购物网站，海外用户可以在AliExpress挑
 
 ![](media/15736280209153/15736297939914.jpg)
 
-## 数据
-### 数据分析
-相关数据分析和可视化参见：`eda`目录。
 
-这里建议新建一个Python虚拟环境(这里建议使用pipenv)，然后安装requirements.txt，建议的具体操作如下：
-
-```sh
-# 在本仓库根目录执行以下操作
-pipenv --python 3.9.12 # 或 pipenv --python path/to/python, python 版本建议3.9.12 
-pipenv run pip install -r requirements.txt
-
-# 安装jupyterlab的kernel
-pipenv run python -m ipykernel install --name antai-cup # pipenv的 .venv/ 如果放在项目根目录，则虚拟环境的名字就是项目目录的名字，具体的需要了解pipenv的使用
-
-# 成功安装jupyterlab的 `antai-cup` kernel后, 刷新一下浏览器，在jupyterlab界面右上角kernel选择`antai-cup`即可在jupyterlab里面使用虚拟环境了 
-
-# eda 目录下的 eda_round1.ipynb 和 eda_round2.ipynb 分别是第一轮初赛数据和第二轮复赛数据的探索分析
-```
 
 ### 特征工程
 赛题所给的字段相对简单，主要可分为：用户-商品-场景，我们通过对不同类型因素进行交叉复合，并使用基础统计手段进行计算，构造出高阶特征，提取出购物决策的相关信息：
